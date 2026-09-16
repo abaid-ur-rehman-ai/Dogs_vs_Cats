@@ -7,6 +7,7 @@ def preprocess_image(file_bytes):
 
     # Decode that array into an actual image (like cv2.imread, but from memory)
     img = cv2.imdecode(np_array, cv2.IMREAD_COLOR)
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)  # add right after cv2.imdecode
 
     # Resize to match what the model was trained on
     img = cv2.resize(img, (256, 256))
